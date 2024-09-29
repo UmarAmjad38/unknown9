@@ -471,9 +471,9 @@ const Header = ({
             <div className={s.menufloat}>
               {Array.from("Menu").map((e, i) => {
                 return (
-                  <span className="menuinside" key={i}>
+                  <a className="menuinside" key={i}>
                     {e}
-                  </span>
+                  </a>
                 );
               })}
               <div>
