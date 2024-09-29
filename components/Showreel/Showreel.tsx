@@ -23,35 +23,43 @@ const Showreel = () => {
         },
       });
 
+      timeline.set(video.current, {
+        scaleX: 0.8,
+        y: -60,
+        clipPath: "polygon(0 25%, 100% 0%, 100% 100%, 0 100%)",
+      });
+
       timeline
-        .fromTo(
+        .to(
           video.current,
-          { x: 0, y: 0, clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
           {
-            x: 0,
+            // x: -60,
+            scaleX: 0.9,
             y: -100,
-            duration: 2.2,
+            duration: 1,
             ease: "power1.out",
-            clipPath: "polygon(0 0, 100% 0, 100% 95%, 0 100%)",
+            clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0 100%)",
           }
         )
         .to(video.current, {
-          x: -20,
+          scaleX: 1,
+          x: -60,
           y: -100,
           duration: 1,
           ease: "power1.out",
-          clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)",
+          clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
         })
         .to(video.current, {
-          x: -40,
+          scaleX: 1,
+          x: -60,
           y: -100,
           duration: 2,
           ease: "power1.out",
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 78%)",
+          clipPath: "polygon(0 0, 100% 0, 100% 72%, 0 100%)",
         });
     }
   }, []);
-
+  
   useEffect(() => {
     if (heading.current) {
       const words = heading.current.querySelectorAll(".word");
@@ -206,6 +214,7 @@ const Showreel = () => {
           overflow: "hidden",
           width: "100%",
           height: 0,
+          borderRadius: "20px",
         }}
       >
         <iframe
@@ -217,6 +226,7 @@ const Showreel = () => {
             height: "100%",
             width: "100%",
             pointerEvents: "none",
+            borderRadius: "inherit",
           }}
           loading="lazy"
           frameBorder={0}
